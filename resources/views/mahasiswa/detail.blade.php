@@ -8,6 +8,8 @@
                 Detail Mahasiswa
             </div>
             <div class="card-body">
+
+                @if ($Mahasiswa)
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item"><b>Nim: </b>{{$Mahasiswa->nim}}</li>
                     <li class="list-group-item"><b>Nama: </b>{{$Mahasiswa->nama}}</li>
@@ -17,6 +19,10 @@
                     <li class="list-group-item"><b>Alamat: </b>{{$Mahasiswa->alamat}}</li>
                     <li class="list-group-item"><b>Tanggal Lahir: </b>{{$Mahasiswa->ttl}}</li>
                 </ul>
+                @else
+                <p>Mahasiswa Tidak Ditemukan</p>
+                @endif
+
             </div>
             <a class="btn btn-success mt-3" href="{{ route('mahasiswa.index') }}">Kembali</a>
         </div>
