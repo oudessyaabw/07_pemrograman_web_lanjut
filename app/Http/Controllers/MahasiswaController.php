@@ -168,4 +168,12 @@ class MahasiswaController extends Controller
         $nilai = Mahasiswa_MataKuliah::with('matakuliah')->where('mahasiswa_id', $mahasiswa->id_mahasiswa)->get();
         return view('mahasiswa.khs', compact('mahasiswa', 'nilai'));
     }
+    public function print_nilai($nim)
+    {
+
+        $mahasiswa = Mahasiswa::with('kelas')->where('nim', $nim)->first();
+        $nilai = Mahasiswa_MataKuliah::with('matakuliah')->where('mahasiswa_id', $mahasiswa->id_mahasiswa)->get();
+        $pdf = PDF::loadview('mahasiswa.cetak_khs', ['mahasiswa' => $mahasiswa, 'nilai' => $nilai]);
+        return $pdf->stream();
+    }
 }

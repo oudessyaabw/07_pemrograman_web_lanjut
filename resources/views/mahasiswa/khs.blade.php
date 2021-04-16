@@ -9,6 +9,11 @@
         <h3>Kartu Hasil Studi</h3>
         <br>
     </div>
+    <div class="row">
+        <div class="m-1">
+            <a class="btn btn-success" href="{{route('mahasiswa.nilai.print', $mahasiswa->nim)}}">Cetak Nilai</a>
+        </div>
+    </div>
     <div class="my-3">
         <p><strong>Nama</strong> : {{$mahasiswa->nama}}</p>
         <p><strong>NIM</strong> : {{$mahasiswa->nim}}</p>
