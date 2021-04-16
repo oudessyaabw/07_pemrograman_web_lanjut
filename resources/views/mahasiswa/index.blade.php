@@ -38,6 +38,7 @@
             <th>Email</th>
             <th>Alamat</th>
             <th>TTL</th>
+            <th>foto</th>
             <th width="280px">Action</th>
         </tr>
 
@@ -50,9 +51,10 @@
             <td>{{ $mhs->email }}</td>
             <td>{{ $mhs->alamat }}</td>
             <td>{{ $mhs->ttl }}</td>
+            <td><img class="w-50" src="{{asset('storage/'.$mhs->foto)}}"></td>
             <td>
                 <form action="{{ route('mahasiswa.destroy',['mahasiswa'=>$mhs->nim]) }}" method="POST">
-                    <a class="btn btn-info" href="{{ route('mahasiswa.show',$mhs->nim) }}">Show</a>
+                    <a class="btn btn-success" href="{{ route('mahasiswa.show',$mhs->nim) }}">Show</a>
                     <a class="btn btn-primary" href="{{ route('mahasiswa.edit',$mhs->nim) }}">Edit</a>
                     <a class="btn btn-secondary" href="{{ route('mahasiswa.nilai',$mhs->nim) }}">Nilai</a>
                     @csrf
